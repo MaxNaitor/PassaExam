@@ -1,5 +1,9 @@
 package design_pattern;
 
+import design_pattern.factory.Pizza;
+import design_pattern.factory.PizzaCampioneFactory;
+import design_pattern.factory.PizzaFactory;
+import design_pattern.factory.Pizzeria;
 import design_pattern.observer.RilevatoreMeteo;
 import design_pattern.strategy.AnatraDiPlastica;
 import design_pattern.strategy.AnatraVera;
@@ -7,8 +11,7 @@ import design_pattern.strategy.AnatraVera;
 public class Main {
 
 	public static void main(String[] args) {
-//		strategyPattern();
-		observerPattern();
+		factoryPattern();
 	}
 
 	public static void strategyPattern() {
@@ -26,5 +29,21 @@ public class Main {
 		RilevatoreMeteo rilevatoreMeteo = new RilevatoreMeteo();
 		rilevatoreMeteo.aggiornaMeteo("Nuvoloso");
 		rilevatoreMeteo.aggiornaMeteo("Soleggiato");
+	}
+	
+	public static void factoryPattern() {
+		Pizzeria laLanterna = new Pizzeria(new PizzaFactory());
+		Pizzeria ilCampione = new Pizzeria(new PizzaCampioneFactory());
+		
+		Pizza margheritaLanterna = laLanterna.ordinaPizza("margherita");
+		Pizza margheritaCampione = ilCampione.ordinaPizza("margherita");
+		
+		margheritaLanterna.mangia();
+		margheritaCampione.mangia();
+		
+		Pizza specialeLanterna = laLanterna.ordinaPizza("speciale");
+		Pizza specialeCampione = ilCampione.ordinaPizza("speciale");
+		
+		specialeCampione.mangia();
 	}
 }
