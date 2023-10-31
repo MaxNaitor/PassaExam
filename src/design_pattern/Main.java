@@ -5,13 +5,14 @@ import design_pattern.factory.PizzaCampioneFactory;
 import design_pattern.factory.PizzaFactory;
 import design_pattern.factory.Pizzeria;
 import design_pattern.observer.RilevatoreMeteo;
+import design_pattern.singleton.SingletonObject;
 import design_pattern.strategy.AnatraDiPlastica;
 import design_pattern.strategy.AnatraVera;
 
 public class Main {
 
 	public static void main(String[] args) {
-		factoryPattern();
+		singletonPattern();
 	}
 
 	public static void strategyPattern() {
@@ -45,5 +46,10 @@ public class Main {
 		Pizza specialeCampione = ilCampione.ordinaPizza("speciale");
 		
 		specialeCampione.mangia();
+	}
+	
+	public static void singletonPattern(){
+		SingletonObject singleton = SingletonObject.getInstance();
+		singleton = SingletonObject.getInstance();
 	}
 }
