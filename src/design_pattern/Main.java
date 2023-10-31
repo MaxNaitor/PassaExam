@@ -1,12 +1,14 @@
 package design_pattern;
 
+import design_pattern.observer.RilevatoreMeteo;
 import design_pattern.strategy.AnatraDiPlastica;
 import design_pattern.strategy.AnatraVera;
 
 public class Main {
 
 	public static void main(String[] args) {
-		strategyPattern();
+//		strategyPattern();
+		observerPattern();
 	}
 
 	public static void strategyPattern() {
@@ -18,5 +20,11 @@ public class Main {
 
 		plastica.getComportamentoVolo().vola();
 		vera.getComportamentoVolo().vola();
+	}
+	
+	public static void observerPattern() {
+		RilevatoreMeteo rilevatoreMeteo = new RilevatoreMeteo();
+		rilevatoreMeteo.aggiornaMeteo("Nuvoloso");
+		rilevatoreMeteo.aggiornaMeteo("Soleggiato");
 	}
 }
