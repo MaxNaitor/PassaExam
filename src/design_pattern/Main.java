@@ -1,5 +1,9 @@
 package design_pattern;
 
+import design_pattern.decorator.AutomobileSportiva;
+import design_pattern.decorator.AutomobileUtilitaria;
+import design_pattern.decorator.CHR;
+import design_pattern.decorator.Ferrari;
 import design_pattern.factory.Pizza;
 import design_pattern.factory.PizzaCampioneFactory;
 import design_pattern.factory.PizzaFactory;
@@ -12,7 +16,7 @@ import design_pattern.strategy.AnatraVera;
 public class Main {
 
 	public static void main(String[] args) {
-		singletonPattern();
+		decoratorPattern();
 	}
 
 	public static void strategyPattern() {
@@ -51,5 +55,15 @@ public class Main {
 	public static void singletonPattern(){
 		SingletonObject singleton = SingletonObject.getInstance();
 		singleton = SingletonObject.getInstance();
+	}
+	
+	public static void decoratorPattern() {
+		AutomobileSportiva ferrari = new AutomobileSportiva(new Ferrari()) {
+		};
+		AutomobileUtilitaria chr = new AutomobileUtilitaria(new CHR()) {
+		}; 
+		
+		ferrari.guida();
+		chr.guida();
 	}
 }
